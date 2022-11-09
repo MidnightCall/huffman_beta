@@ -1,0 +1,18 @@
+\hypertarget{_huffman_8h}{}\doxysection{E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.0/huffman\+\_\+beta/\+Huffman.h File Reference}
+\label{_huffman_8h}\index{E:/CS自学/C++/数据结构实验/huffman\_beta2.0/huffman\_beta/Huffman.h@{E:/CS自学/C++/数据结构实验/huffman\_beta2.0/huffman\_beta/Huffman.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include \char`\"{}Tree.\+h\char`\"{}}\newline
+Include dependency graph for Huffman.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcomparator}{comparator}}
+\item 
+class \mbox{\hyperlink{class_huffman}{Huffman}}
+\begin{DoxyCompactList}\small\item\em 哈夫曼编码相关操作的类 用于记载符号和对应的二进制编码字符串； 主要用途： (1) 解码：读取根节点字段并且遍历树来抽取出所需要的信息 (2) 译码：调用get\+Code()函数来提取指定符号的二进制编码 从根节电到指定叶节点的路径决定了叶节点记录的符号的二进制编码， 往左走表示0，往右走表示1. (3) 构建哈夫曼树(私有方法，仅供内部方法调用) (4) 构建密码表(私有方法，仅供内部方法调用) \end{DoxyCompactList}\end{DoxyCompactItemize}
