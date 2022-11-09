@@ -66,14 +66,14 @@ private:
      * @attention 指定的文件必须存在，否则抛出异常
      * @return 返回从文件中读取到的频率表
      */
-    map<char, int> readMap(string srcFile); // 读取map键值对
+    map<char, int> readMap(string srcFile);
 
     /**
      * @brief 将频率表写入指定的文件中
      * @param srcFile 写入的文件名
      * @param hashmap 待写入的频率表
      */
-    void writeMap(map<char, int> hashmap, string destFile); // 写入map
+    void writeMap(map<char, int> hashmap, string destFile);
 
     /**
      * @brief 用指定的字符将字符串分割，辅助readMap和writeMap的执行
@@ -81,7 +81,35 @@ private:
      * @param delim 用于分割的字符
      * @param s 分割后的子字符串存储到的容器
      */
-    void stringSplit(string str, char delim, vector<string>& s); // 用
+    void stringSplit(string str, char delim, vector<string>& s); 
+
+    /**
+     * @brief 将指定的比特流转化为字节流，用string保存
+     * @param str 带转化的bit流
+     * @return 返回转化后的字节流，以字符串的形式保存
+     */
+    string bitToByte(string bits);
+
+    /**
+     * @brief 将指定的字节流转化为比特流，用string保存
+     * @param str 待转化的字节流
+     * @return 返回转化后的比特流，以字符串的形式保存
+     */
+    string byteToBit(string bytes);
+
+    /**
+     * @brief 将一个8位二进制字符串转化为十进制数
+     * @param bin 待转化的二进制字符串
+     * @return 返回转化后的十进制数
+     */
+    int binToDec(string bin);
+
+    /**
+     * @brief 将一个十进制数(0-255)转化位二进制字符串
+     * @param dec 待转化的十进制数
+     * @return 返回转化后的二进制字符串
+     */
+    string decToBin(int dec);
 };
 
 

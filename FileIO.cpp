@@ -5,6 +5,7 @@
 #include "FileIO.h"
 
 // public function
+
 string FileIO::readFile(string srcFile) {
     string s = ""; // 保存读入的字符串
     string buffer; // 暂存逐行读取的字符串
@@ -25,16 +26,14 @@ string FileIO::readFile(string srcFile) {
     return s;
 }
 
-void FileIO::writeFile(string destFile, string content) {
-    ofstream fileOut(destFile);
 
-    if (!fileOut) {
-        fileOut.close();
-        throw "file open error";
-    }
-    else {
-        fileOut << content;
-    }
+void FileIO::writeFile(string destFile, string content) {
+    ofstream fileOut(destFile, ios::binary | ios::out);
+
+    fileOut << content;
+
+    fileOut.write((const char*)&content, sizeof(string));
+
     fileOut.close();
 }
 
@@ -106,8 +105,6 @@ void FileIO::decompress(string srcFile, string destFile) {
     writeFile(destFile, message); // 写文件
 }
 
-// private functions
-
 void FileIO::stringSplit(string str, char delim, vector<string>& s){
     s.clear();
     str += delim;
@@ -122,4 +119,24 @@ void FileIO::stringSplit(string str, char delim, vector<string>& s){
             buffer = "";
         }
     }
+}
+
+string FileIO::bitToByte(string bits){
+
+}
+
+string FileIO::byteToBit(string bytes){
+
+}
+
+int FileIO::binToDec(string bin){
+    int sum = 0;
+    for (int i = 0; i < 8; i++) {
+        sum += pow(2, i);
+    }
+    return sum;
+}
+
+string FileIO::decToBin(int dec){
+
 }
