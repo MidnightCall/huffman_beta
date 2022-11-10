@@ -57,6 +57,7 @@ private:
      * @brief 将指定的字符串写入文件
      * @param destFile 写入的目标文件名
      * @param content 写入的内容
+     * @Deprecated
      */
     void writeFile(string destFile, string content); 
 
@@ -84,32 +85,32 @@ private:
     void stringSplit(string str, char delim, vector<string>& s); 
 
     /**
-     * @brief 将指定的比特流转化为字节流，用string保存
-     * @param str 带转化的bit流
-     * @return 返回转化后的字节流，以字符串的形式保存
+     * @brief 将一个8位的比特流转化为一个字节
+     * @param bits 待转化的比特流i
+     * @return 返回转化后的字节
      */
-    string bitToByte(string bits);
+    unsigned char bitToByte(string bits);
 
     /**
-     * @brief 将指定的字节流转化为比特流，用string保存
-     * @param str 待转化的字节流
-     * @return 返回转化后的比特流，以字符串的形式保存
+     * @brief 将单个字节流转化为比特流，8位的字符串保存
+     * @param byte 带转换的字节
+     * @return 返回转化后的比特流，以8位字符串的形式保存
      */
-    string byteToBit(string bytes);
+    string byteToBit(unsigned char byte);
 
     /**
-     * @brief 将一个8位二进制字符串转化为十进制数
-     * @param bin 待转化的二进制字符串
-     * @return 返回转化后的十进制数
+     * @brief 以二进制方式从指定的文件中读取内容，并转化为对应的哈夫曼码
+     * @param srcFile 待读取的文件名
+     * @return 返回读取到的哈夫曼码
      */
-    int binToDec(string bin);
+    string readFileInBinary(string srcFile);
 
     /**
-     * @brief 将一个十进制数(0-255)转化位二进制字符串
-     * @param dec 待转化的十进制数
-     * @return 返回转化后的二进制字符串
+     * @brief 将指定的哈夫曼码转化为字节流，并以二进制方式向指定的文件写入
+     * @param fileName 待写入的文件名
+     * @param content 待写入的哈夫曼码
      */
-    string decToBin(int dec);
+    void writeFileInBinary(string destFile, string content);
 };
 
 

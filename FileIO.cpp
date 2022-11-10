@@ -26,14 +26,16 @@ string FileIO::readFile(string srcFile) {
     return s;
 }
 
-
 void FileIO::writeFile(string destFile, string content) {
-    ofstream fileOut(destFile, ios::binary | ios::out);
+    ofstream fileOut(destFile);
 
-    fileOut << content;
-
-    fileOut.write((const char*)&content, sizeof(string));
-
+    if (!fileOut) {
+        fileOut.close();
+        throw "file open error";
+    }
+    else {
+        fileOut << content;
+    }
     fileOut.close();
 }
 
@@ -93,14 +95,14 @@ void FileIO::compress(string srcFile, string destFile) {
     string rawString = readFile(srcFile); // 读取原始字符串
     map<char, int> frequency = huff.statistics(rawString); // 构建字符串频率表
     string huffmanCode = huff.encode(rawString, frequency); // 构建哈夫曼编码
-    writeFile(destFile, huffmanCode); // 写入文件
+    writeFileInBinary(destFile, huffmanCode); // 写入文件
     writeMap(frequency, destFile); // 写入频率表
 }
 
 void FileIO::decompress(string srcFile, string destFile) {
     Huffman huff;
     map<char, int> frequency = readMap(srcFile); // 读取频率表
-    string huffmanCode = readFile(srcFile); // 读取哈夫曼编码串
+    string huffmanCode = readFileInBinary(srcFile); // 读取哈夫曼编码串
     string message = huff.decode(huffmanCode, frequency); // 解码
     writeFile(destFile, message); // 写文件
 }
@@ -121,22 +123,50 @@ void FileIO::stringSplit(string str, char delim, vector<string>& s){
     }
 }
 
-string FileIO::bitToByte(string bits){
+void FileIO::writeFileInBinary(string destFile, string content) {
+    ofstream fileOut(destFile, ios::binary | ios::out);
+    unsigned char currentByte;
+    string currentBits;
 
+    for (int i = 0; i < content.size(); i += 8) {
+        currentBits = content.substr(i, 8);
+        currentByte = bitToByte(currentBits);
+
+        fileOut.write((const char*)&currentByte, sizeof(unsigned char));
+    }
+
+    fileOut.close();
 }
 
-string FileIO::byteToBit(string bytes){
+string FileIO::readFileInBinary(string srcFile) {
+    ifstream fileIn(srcFile, ios::binary | ios::out);
+    string ret = "";
+    unsigned char currentByte;
 
+    while (fileIn.read((char*)&currentByte, sizeof(unsigned char))) {
+        ret += byteToBit(currentByte);
+    }
+
+    return ret;
 }
 
-int FileIO::binToDec(string bin){
+unsigned char FileIO::bitToByte(string bits){
+    int length = 8; // 确保换入bits为8
     int sum = 0;
-    for (int i = 0; i < 8; i++) {
-        sum += pow(2, i);
+    for (int i = 0; i < length; i++) {
+        sum = bits[i] == '1' ? pow(2, (7 - i)) + sum : sum;
     }
     return sum;
 }
 
-string FileIO::decToBin(int dec){
-
+string FileIO::byteToBit(unsigned char bytes){
+    string str = "";
+    int remainder;
+    while (bytes > 0) {
+        remainder = bytes % 2;
+        bytes /= 2;
+        str += to_string(remainder);
+    }
+    reverse(str.begin(), str.end());
+    return str;
 }
