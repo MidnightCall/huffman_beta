@@ -18,17 +18,12 @@ string \mbox{\hyperlink{class_huffman_a231e6a04681e9e56fb86291a8d8e5f05}{encode}
 \begin{DoxyCompactList}\small\item\em 对由给定的字符串和频率表编码 \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{class_huffman_a43f2d783457ea38d073ef2ec460220b6}{decode}} (string binary\+Str, map$<$ char, int $>$ \mbox{\hyperlink{class_huffman_a7e938c507374f402ad010ab300a15380}{statistics}})
 \begin{DoxyCompactList}\small\item\em 对由给定的字符串和频率表解码 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_huffman_a66a3b501f97f5298531e907dce6d071a}{test\+Build\+Tree}} ()
+\mbox{\Hypertarget{class_huffman_a66a3b501f97f5298531e907dce6d071a}\label{class_huffman_a66a3b501f97f5298531e907dce6d071a}} 
+void {\bfseries test\+Build\+Tree} ()
 \item 
-void \mbox{\hyperlink{class_huffman_aff5522d120ea2abdfd85bf7c1c70786a}{test\+Build\+Encoding\+Info}} ()
+\mbox{\Hypertarget{class_huffman_aff5522d120ea2abdfd85bf7c1c70786a}\label{class_huffman_aff5522d120ea2abdfd85bf7c1c70786a}} 
+void {\bfseries test\+Build\+Encoding\+Info} ()
 \end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_tree}{Tree}} $\ast$ \mbox{\hyperlink{class_huffman_a8413959823aeaf9422649f3b9f172a98}{build\+Tree}} (map$<$ char, int $>$ \mbox{\hyperlink{class_huffman_a7e938c507374f402ad010ab300a15380}{statistics}}, vector$<$ \mbox{\hyperlink{class_node}{Node}} $\ast$ $>$ \&leafs)
-\begin{DoxyCompactList}\small\item\em 由给定频率表构建哈夫曼树，同时收集叶节点 \end{DoxyCompactList}\item 
-map$<$ char, string $>$ \mbox{\hyperlink{class_huffman_ae38f177d012d651c484c732d534d1387}{build\+Encoding\+Info}} (vector$<$ \mbox{\hyperlink{class_node}{Node}} $\ast$ $>$ leaf\+Nodes)
-\begin{DoxyCompactList}\small\item\em 由叶节点的集合构建译码表 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -46,44 +41,6 @@ Version\+: beta-\/1.\+0 \begin{DoxyAttention}{Attention}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_huffman_ae38f177d012d651c484c732d534d1387}\label{class_huffman_ae38f177d012d651c484c732d534d1387}} 
-\index{Huffman@{Huffman}!buildEncodingInfo@{buildEncodingInfo}}
-\index{buildEncodingInfo@{buildEncodingInfo}!Huffman@{Huffman}}
-\doxysubsubsection{\texorpdfstring{buildEncodingInfo()}{buildEncodingInfo()}}
-{\footnotesize\ttfamily map$<$ char, string $>$ Huffman\+::build\+Encoding\+Info (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_node}{Node}} $\ast$ $>$}]{leaf\+Nodes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-由叶节点的集合构建译码表 
-
-
-\begin{DoxyParams}{Parameters}
-{\em leaf\+Nodes} & 叶节点集合 \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-返回构建的译码表， 表的键为字符，值为对应的哈夫曼码 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_huffman_a8413959823aeaf9422649f3b9f172a98}\label{class_huffman_a8413959823aeaf9422649f3b9f172a98}} 
-\index{Huffman@{Huffman}!buildTree@{buildTree}}
-\index{buildTree@{buildTree}!Huffman@{Huffman}}
-\doxysubsubsection{\texorpdfstring{buildTree()}{buildTree()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_tree}{Tree}} $\ast$ Huffman\+::build\+Tree (\begin{DoxyParamCaption}\item[{map$<$ char, int $>$}]{statistics,  }\item[{vector$<$ \mbox{\hyperlink{class_node}{Node}} $\ast$ $>$ \&}]{leafs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-由给定频率表构建哈夫曼树，同时收集叶节点 
-
-
-\begin{DoxyParams}{Parameters}
-{\em statistics} & 给定的频率表 \\
-\hline
-{\em leafs} & 用于构建叶节点的表 \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-返回构建出的哈夫曼树的指针 
-\end{DoxyReturn}
 \mbox{\Hypertarget{class_huffman_a43f2d783457ea38d073ef2ec460220b6}\label{class_huffman_a43f2d783457ea38d073ef2ec460220b6}} 
 \index{Huffman@{Huffman}!decode@{decode}}
 \index{decode@{decode}!Huffman@{Huffman}}
@@ -137,21 +94,9 @@ Version\+: beta-\/1.\+0 \begin{DoxyAttention}{Attention}
 \begin{DoxyReturn}{Returns}
 返回构建的字符串频率表，其中， 表的键为字符，值为对应字符在 字符串中出现的频率 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_huffman_aff5522d120ea2abdfd85bf7c1c70786a}\label{class_huffman_aff5522d120ea2abdfd85bf7c1c70786a}} 
-\index{Huffman@{Huffman}!testBuildEncodingInfo@{testBuildEncodingInfo}}
-\index{testBuildEncodingInfo@{testBuildEncodingInfo}!Huffman@{Huffman}}
-\doxysubsubsection{\texorpdfstring{testBuildEncodingInfo()}{testBuildEncodingInfo()}}
-{\footnotesize\ttfamily void Huffman\+::test\+Build\+Encoding\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_huffman_a66a3b501f97f5298531e907dce6d071a}\label{class_huffman_a66a3b501f97f5298531e907dce6d071a}} 
-\index{Huffman@{Huffman}!testBuildTree@{testBuildTree}}
-\index{testBuildTree@{testBuildTree}!Huffman@{Huffman}}
-\doxysubsubsection{\texorpdfstring{testBuildTree()}{testBuildTree()}}
-{\footnotesize\ttfamily void Huffman\+::test\+Build\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta/\mbox{\hyperlink{_huffman_8h}{Huffman.\+h}}\item 
-E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta/\mbox{\hyperlink{_huffman_8cpp}{Huffman.\+cpp}}\end{DoxyCompactItemize}
+E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta2.\+0/Huffman.\+h\item 
+E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta2.\+0/Huffman.\+cpp\end{DoxyCompactItemize}

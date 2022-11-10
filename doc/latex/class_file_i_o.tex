@@ -16,19 +16,6 @@ void \mbox{\hyperlink{class_file_i_o_ad2dbb910e3437ef95515a93600fb5082}{compress
 \begin{DoxyCompactList}\small\item\em 将指定的文件压缩为目标文件 \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_file_i_o_a1c8124ff307a063154d8ae377b6cbc0b}{decompress}} (string src\+File, string dest\+File)
 \begin{DoxyCompactList}\small\item\em 解压指定的文件 \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-string \mbox{\hyperlink{class_file_i_o_a05d458e39b64c2c2d2f8f2e3dd51ad78}{read\+File}} (string src\+File)
-\begin{DoxyCompactList}\small\item\em 从文件中读取字符串的函数 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_file_i_o_a538b3dc7e689196592dabcd48c7d732f}{write\+File}} (string dest\+File, string content)
-\begin{DoxyCompactList}\small\item\em 将指定的字符串写入文件 \end{DoxyCompactList}\item 
-map$<$ char, int $>$ \mbox{\hyperlink{class_file_i_o_a073d3f82ddf45d42468f0205d6153252}{read\+Map}} (string src\+File)
-\begin{DoxyCompactList}\small\item\em 从指定文件中读取字符频率表 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_file_i_o_ad65ae9187b08a398990c8745ea56e8cb}{write\+Map}} (map$<$ char, int $>$ hashmap, string dest\+File)
-\begin{DoxyCompactList}\small\item\em 将频率表写入指定的文件中 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_file_i_o_a2e32b415e4167079cdddb4143de6fb56}{string\+Split}} (string str, char delim, vector$<$ string $>$ \&s)
-\begin{DoxyCompactList}\small\item\em 用指定的字符将字符串分割，辅助read\+Map和write\+Map的执行 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -86,105 +73,9 @@ Version\+: beta-\/1.\+0 \begin{DoxyAttention}{Attention}
 \begin{DoxyAttention}{Attention}
 待解压的文件必须存在，否则抛出异常 
 \end{DoxyAttention}
-\mbox{\Hypertarget{class_file_i_o_a05d458e39b64c2c2d2f8f2e3dd51ad78}\label{class_file_i_o_a05d458e39b64c2c2d2f8f2e3dd51ad78}} 
-\index{FileIO@{FileIO}!readFile@{readFile}}
-\index{readFile@{readFile}!FileIO@{FileIO}}
-\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
-{\footnotesize\ttfamily string File\+I\+O\+::read\+File (\begin{DoxyParamCaption}\item[{string}]{src\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-从文件中读取字符串的函数 
-
-
-\begin{DoxyParams}{Parameters}
-{\em src\+File} & 待读取的文件名 \\
-\hline
-\end{DoxyParams}
-\begin{DoxyAttention}{Attention}
-待读取的文件必须存在，否则抛出异常 
-\end{DoxyAttention}
-\begin{DoxyReturn}{Returns}
-返回从文件中读取的字符串，每一行的结尾追加\textquotesingle{}~\newline
-\textquotesingle{}，以便后续还原 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_file_i_o_a073d3f82ddf45d42468f0205d6153252}\label{class_file_i_o_a073d3f82ddf45d42468f0205d6153252}} 
-\index{FileIO@{FileIO}!readMap@{readMap}}
-\index{readMap@{readMap}!FileIO@{FileIO}}
-\doxysubsubsection{\texorpdfstring{readMap()}{readMap()}}
-{\footnotesize\ttfamily map$<$ char, int $>$ File\+I\+O\+::read\+Map (\begin{DoxyParamCaption}\item[{string}]{src\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-从指定文件中读取字符频率表 
-
-
-\begin{DoxyParams}{Parameters}
-{\em src\+File} & 指定的文件名 \\
-\hline
-\end{DoxyParams}
-\begin{DoxyAttention}{Attention}
-指定的文件必须存在，否则抛出异常 
-\end{DoxyAttention}
-\begin{DoxyReturn}{Returns}
-返回从文件中读取到的频率表 
-\end{DoxyReturn}
-\mbox{\Hypertarget{class_file_i_o_a2e32b415e4167079cdddb4143de6fb56}\label{class_file_i_o_a2e32b415e4167079cdddb4143de6fb56}} 
-\index{FileIO@{FileIO}!stringSplit@{stringSplit}}
-\index{stringSplit@{stringSplit}!FileIO@{FileIO}}
-\doxysubsubsection{\texorpdfstring{stringSplit()}{stringSplit()}}
-{\footnotesize\ttfamily void File\+I\+O\+::string\+Split (\begin{DoxyParamCaption}\item[{string}]{str,  }\item[{char}]{delim,  }\item[{vector$<$ string $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-用指定的字符将字符串分割，辅助read\+Map和write\+Map的执行 
-
-
-\begin{DoxyParams}{Parameters}
-{\em str} & 待分割的字符串 \\
-\hline
-{\em delim} & 用于分割的字符 \\
-\hline
-{\em s} & 分割后的子字符串存储到的容器 \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_file_i_o_a538b3dc7e689196592dabcd48c7d732f}\label{class_file_i_o_a538b3dc7e689196592dabcd48c7d732f}} 
-\index{FileIO@{FileIO}!writeFile@{writeFile}}
-\index{writeFile@{writeFile}!FileIO@{FileIO}}
-\doxysubsubsection{\texorpdfstring{writeFile()}{writeFile()}}
-{\footnotesize\ttfamily void File\+I\+O\+::write\+File (\begin{DoxyParamCaption}\item[{string}]{dest\+File,  }\item[{string}]{content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-将指定的字符串写入文件 
-
-
-\begin{DoxyParams}{Parameters}
-{\em dest\+File} & 写入的目标文件名 \\
-\hline
-{\em content} & 写入的内容 \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{class_file_i_o_ad65ae9187b08a398990c8745ea56e8cb}\label{class_file_i_o_ad65ae9187b08a398990c8745ea56e8cb}} 
-\index{FileIO@{FileIO}!writeMap@{writeMap}}
-\index{writeMap@{writeMap}!FileIO@{FileIO}}
-\doxysubsubsection{\texorpdfstring{writeMap()}{writeMap()}}
-{\footnotesize\ttfamily void File\+I\+O\+::write\+Map (\begin{DoxyParamCaption}\item[{map$<$ char, int $>$}]{hashmap,  }\item[{string}]{dest\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-将频率表写入指定的文件中 
-
-
-\begin{DoxyParams}{Parameters}
-{\em src\+File} & 写入的文件名 \\
-\hline
-{\em hashmap} & 待写入的频率表 \\
-\hline
-\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta/\mbox{\hyperlink{_file_i_o_8h}{File\+I\+O.\+h}}\item 
-E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta/\mbox{\hyperlink{_file_i_o_8cpp}{File\+I\+O.\+cpp}}\end{DoxyCompactItemize}
+E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta2.\+0/File\+I\+O.\+h\item 
+E\+:/\+C\+S自学/\+C++/数据结构实验/huffman\+\_\+beta2.\+0/huffman\+\_\+beta2.\+0/File\+I\+O.\+cpp\end{DoxyCompactItemize}
