@@ -63,7 +63,7 @@ public:
             choice = ui.getchoice();
             switch (choice) {
             case 1:
-                cout << "Please input source file name(size less than 4GB):" << endl;
+                cout << "Please input source file name(size less than 4GB):";
                 cin >> srcFile;
                 cout << "Please input code file name:";
                 cin >> destFile;

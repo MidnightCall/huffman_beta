@@ -128,6 +128,12 @@ void FileIO::writeFileInBinary(string destFile, string content) {
     unsigned char currentByte;
     string currentBits;
 
+    content.append("1");
+
+    while (content.size() % 8 != 0) {
+        content.append("0");
+    }
+
     for (int i = 0; i < content.size(); i += 8) {
         currentBits = content.substr(i, 8);
         currentByte = bitToByte(currentBits);
@@ -139,13 +145,23 @@ void FileIO::writeFileInBinary(string destFile, string content) {
 }
 
 string FileIO::readFileInBinary(string srcFile) {
-    ifstream fileIn(srcFile, ios::binary | ios::out);
+    ifstream fileIn(srcFile, ios::binary | ios::in);
     string ret = "";
     unsigned char currentByte;
+    string currentbits;
 
     while (fileIn.read((char*)&currentByte, sizeof(unsigned char))) {
-        ret += byteToBit(currentByte);
+        currentbits = byteToBit(currentByte);
+        ret += currentbits;
     }
+
+
+    string::iterator iter = ret.end();
+
+    while (*(--iter) != '1') {
+        ret.erase(iter);
+    }
+    ret.erase(iter);
 
     return ret;
 }
@@ -166,6 +182,9 @@ string FileIO::byteToBit(unsigned char bytes){
         remainder = bytes % 2;
         bytes /= 2;
         str += to_string(remainder);
+    }
+    while (str.size() < 8) {
+        str.append("0");
     }
     reverse(str.begin(), str.end());
     return str;
