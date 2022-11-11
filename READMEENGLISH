@@ -1,0 +1,20 @@
+Author: kojikoji
+email: 1310402980@qq.com
+This program is only used to write binary tree data structures in C++, C++ IO streams
+The study cannot be used for file compression for engineering requirements
+
+Expected Objectives:
+1. Implement compressed √ of text files
+2. Implement compression of binary stream files
+3. Use graphical interface design to create a friendly interactive environment
+
+2022 / 11 / 9
+Goal 1 is achieved, but Huffman encoding is not converted into a byte stream to write to a file, resulting in uncompressed use
+
+2022 / 11 / 110
+Considering the recent business, habits, software requirements analysis, data structure
+and other courses require midterm exams, and the implementation of functions 2 and 3 is suspended, and will be later
+Further development continues
+
+2022 / 11 / 11
+Addresses an issue that results in incomprehensibility

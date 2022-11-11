@@ -1,0 +1,20 @@
+Auteur: kojikoji
+Courriel : 1310402980@qq.com
+Ce programme est uniquement utilisé pour écrire des structures de données d’arbre binaires en flux d’E/S C++, C++
+L’étude ne peut pas être utilisée pour la compression de fichiers pour des besoins d’ingénierie
+
+Objectifs attendus :
+1. Mettre en œuvre des √ compressés de fichiers texte
+2. Implémenter la compression des fichiers de flux binaires
+3. Utilisez la conception graphique de l’interface pour créer un environnement interactif convivial
+
+2022 / 11 / 9
+L’objectif 1 est atteint, mais l’encodage Huffman n’est pas converti en flux d’octets pour écrire dans un fichier, ce qui entraîne une utilisation non compressée
+
+2022 / 11 / 110
+Compte tenu des activités récentes, des habitudes, de l’analyse des besoins logiciels, de la structure des données
+et d’autres cours nécessitent des examens de mi-session, et la mise en œuvre des fonctions 2 et 3 est suspendue, et sera plus tard
+Le développement se poursuit
+
+2022 / 11 / 11
+Aborde un problème qui entraîne une incompréhensibilité
