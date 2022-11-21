@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by praist on 2022/11/9.
 //
 
@@ -96,6 +96,10 @@ void FileIO::compress(string srcFile, string destFile) {
     map<char, int> frequency = huff.statistics(rawString); // 构建字符串频率表
     string huffmanCode = huff.encode(rawString, frequency); // 构建哈夫曼编码
     writeFileInBinary(destFile, huffmanCode); // 写入文件
+    int rawSize = getFileSize(srcFile);
+    int compressSize = getFileSize(destFile);
+    double compressRate = (double)compressSize / rawSize;
+    cout << "压缩比为" << compressRate << endl;
     writeMap(frequency, destFile); // 写入频率表
 }
 
@@ -188,4 +192,12 @@ string FileIO::byteToBit(unsigned char bytes){
     }
     reverse(str.begin(), str.end());
     return str;
+}
+
+int FileIO::getFileSize(string filename){
+    ifstream in(filename);
+    in.seekg(0, ios::end);
+    streampos ps = in.tellg();
+    in.close();
+    return ps;
 }

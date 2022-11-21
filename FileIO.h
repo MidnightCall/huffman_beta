@@ -9,6 +9,7 @@
 #include <set>
 #include <vector>
 #include <string>
+#include <filesystem>
 using namespace std;
 #include "Huffman.h"
 
@@ -111,6 +112,8 @@ private:
      * @param content 待写入的哈夫曼码
      */
     void writeFileInBinary(string destFile, string content);
+
+    int getFileSize(string filename);
 };
 
 
